@@ -1,0 +1,48 @@
+server:
+  port: 9000
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: account
+        uri: http://localhost:8010
+        predicates:
+        - Path=/account
+      - id: accounttype
+        uri: http://localhost:8020
+        predicates:
+        - Path=/accounttype
+      - id: client
+        uri: http://localhost:8030
+        predicates:
+        - Path=/client
+      - id: clienttype
+        uri: http://localhost:8040
+        predicates:
+        - Path=/clienttype
+      - id: documenttype
+        uri: http://localhost:8050
+        predicates:
+        - Path=/documenttype
+      - id: operationtype
+        uri: http://localhost:8060
+        predicates:
+        - Path=/operationtype
+      - id: product
+        uri: http://localhost:8070
+        predicates:
+        - Path=/product
+      - id: representation
+        uri: http://localhost:8080
+        predicates:
+        - Path=/representation
+      - id: transactionrecord
+        uri: http://localhost:8090
+        predicates:
+        - Path=/transactionrecord
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+      
